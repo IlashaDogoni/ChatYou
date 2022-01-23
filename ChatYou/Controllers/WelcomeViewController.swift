@@ -9,11 +9,18 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet var titlelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let titleText = "Chat🍆You"
+        var charIndex = 0.0
+        titlelabel.text = ""
+        for letter in titleText{
+            Timer.scheduledTimer(withTimeInterval: 0.15 * charIndex, repeats: false, block: { (timer) in
+                self.titlelabel.text?.append(letter)
+            })
+            charIndex += 1
+        }
     }
-
-
 }
 
