@@ -111,10 +111,10 @@
                                 <rect key="frame" x="0.0" y="196" width="414" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sN-Dc-YLG">
-                                        <rect key="frame" x="48" y="20.5" width="318" height="39.5"/>
+                                        <rect key="frame" x="48" y="21" width="318" height="38"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -137,25 +137,35 @@
                                     <action selector="registerPressed:" destination="66D-53-9bc" eventType="touchUpInside" id="Iq5-hW-1ZV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61J-eI-aVH">
+                                <rect key="frame" x="16" y="365" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r5S-aX-dhM"/>
                         <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
                             <constraint firstItem="paq-gJ-mDJ" firstAttribute="top" secondItem="4id-OJ-Wjf" secondAttribute="bottom" constant="8" id="2Rh-0A-DGi"/>
                             <constraint firstItem="r5S-aX-dhM" firstAttribute="trailing" secondItem="paq-gJ-mDJ" secondAttribute="trailing" id="9cM-D5-HW7"/>
+                            <constraint firstItem="61J-eI-aVH" firstAttribute="leading" secondItem="r5S-aX-dhM" secondAttribute="leading" constant="16" id="E1L-HW-DEA"/>
                             <constraint firstItem="xmO-K1-elI" firstAttribute="centerX" secondItem="YT4-B7-Xwi" secondAttribute="centerX" id="JAy-Uv-rAy"/>
                             <constraint firstItem="4id-OJ-Wjf" firstAttribute="leading" secondItem="r5S-aX-dhM" secondAttribute="leading" id="OVx-kc-rrG"/>
                             <constraint firstItem="xmO-K1-elI" firstAttribute="top" secondItem="paq-gJ-mDJ" secondAttribute="bottom" constant="8" id="RXi-Rf-Bs4"/>
                             <constraint firstItem="paq-gJ-mDJ" firstAttribute="leading" secondItem="r5S-aX-dhM" secondAttribute="leading" id="SMJ-Pq-Ffs"/>
                             <constraint firstItem="r5S-aX-dhM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xmO-K1-elI" secondAttribute="trailing" id="WAU-dZ-euV"/>
+                            <constraint firstItem="61J-eI-aVH" firstAttribute="top" secondItem="xmO-K1-elI" secondAttribute="bottom" constant="20" id="fQp-Nu-DIK"/>
                             <constraint firstItem="r5S-aX-dhM" firstAttribute="trailing" secondItem="4id-OJ-Wjf" secondAttribute="trailing" id="mLa-0I-lBQ"/>
                             <constraint firstItem="4id-OJ-Wjf" firstAttribute="top" secondItem="r5S-aX-dhM" secondAttribute="top" constant="20" id="ngh-Uq-oli"/>
+                            <constraint firstItem="r5S-aX-dhM" firstAttribute="trailing" secondItem="61J-eI-aVH" secondAttribute="trailing" constant="16" id="qxF-RI-A2u"/>
                             <constraint firstItem="xmO-K1-elI" firstAttribute="leading" secondItem="r5S-aX-dhM" secondAttribute="leading" id="tCR-Yt-p3H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rcz-P8-MSz"/>
                     <connections>
                         <outlet property="emailTextfield" destination="zox-2T-hKM" id="pkA-ZD-0Ql"/>
+                        <outlet property="errorLabel" destination="61J-eI-aVH" id="MWG-Ok-141"/>
                         <outlet property="passwordTextfield" destination="0sN-Dc-YLG" id="CMI-of-8EN"/>
                         <segue destination="X2e-4F-b76" kind="show" identifier="RegisterToChat" id="Sns-7O-ZQq"/>
                     </connections>
@@ -227,7 +237,13 @@
                             <constraint firstItem="qYm-jk-sOT" firstAttribute="trailing" secondItem="JIJ-vW-giw" secondAttribute="trailing" constant="16" id="zFz-ny-EhW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bmq-gl-gfh"/>
+                    <navigationItem key="navigationItem" id="bmq-gl-gfh">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="htt-pT-GAT">
+                            <connections>
+                                <action selector="logOutPressed:" destination="X2e-4F-b76" id="fEI-Je-aSM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageTextfield" destination="BJg-0p-wzv" id="VuG-yo-ggC"/>
                         <outlet property="tableView" destination="cPj-Tv-hXy" id="3Dp-hp-LX1"/>
@@ -248,7 +264,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHa-0T-6hI" userLabel="EmailView">
                                 <rect key="frame" x="0.0" y="108" width="414" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzb-1b-TBQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzb-1b-TBQ">
                                         <rect key="frame" x="48" y="20.5" width="318" height="39.5"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -265,11 +281,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-Ap-BQc" userLabel="PasswordView">
                                 <rect key="frame" x="0.0" y="196" width="414" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xid-rD-udy">
-                                        <rect key="frame" x="48" y="20.5" width="318" height="39.5"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xid-rD-udy">
+                                        <rect key="frame" x="48" y="21" width="318" height="38"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -293,25 +309,35 @@
                                     <action selector="loginPressed:" destination="rjq-WI-6qh" eventType="touchUpInside" id="LJM-DU-gj1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pp-xM-9U6">
+                                <rect key="frame" x="16" y="370" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lHs-tx-qNR"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="lHs-tx-qNR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Ht-lA-bo6" secondAttribute="trailing" id="7lQ-Hz-koI"/>
                             <constraint firstItem="Mqh-Ap-BQc" firstAttribute="top" secondItem="qHa-0T-6hI" secondAttribute="bottom" constant="8" id="ANU-bJ-AJr"/>
+                            <constraint firstItem="0pp-xM-9U6" firstAttribute="leading" secondItem="lHs-tx-qNR" secondAttribute="leading" constant="16" id="CXV-dr-BBa"/>
                             <constraint firstItem="Mqh-Ap-BQc" firstAttribute="leading" secondItem="lHs-tx-qNR" secondAttribute="leading" id="EfP-RJ-VfZ"/>
                             <constraint firstItem="lHs-tx-qNR" firstAttribute="trailing" secondItem="qHa-0T-6hI" secondAttribute="trailing" id="VRH-h4-MCg"/>
                             <constraint firstItem="qHa-0T-6hI" firstAttribute="top" secondItem="lHs-tx-qNR" secondAttribute="top" constant="20" id="VSm-xH-y50"/>
                             <constraint firstItem="lHs-tx-qNR" firstAttribute="trailing" secondItem="Mqh-Ap-BQc" secondAttribute="trailing" id="by8-sp-uq4"/>
+                            <constraint firstItem="lHs-tx-qNR" firstAttribute="trailing" secondItem="0pp-xM-9U6" secondAttribute="trailing" constant="16" id="e4I-gJ-Iwc"/>
                             <constraint firstItem="8Ht-lA-bo6" firstAttribute="top" secondItem="Mqh-Ap-BQc" secondAttribute="bottom" constant="8" id="i0H-fZ-fjT"/>
                             <constraint firstItem="8Ht-lA-bo6" firstAttribute="leading" secondItem="lHs-tx-qNR" secondAttribute="leading" id="tF0-8f-3dQ"/>
                             <constraint firstItem="8Ht-lA-bo6" firstAttribute="centerX" secondItem="Ete-z8-89j" secondAttribute="centerX" id="vte-E2-KXl"/>
                             <constraint firstItem="qHa-0T-6hI" firstAttribute="leading" secondItem="lHs-tx-qNR" secondAttribute="leading" id="xqp-nt-hk4"/>
+                            <constraint firstItem="0pp-xM-9U6" firstAttribute="top" secondItem="8Ht-lA-bo6" secondAttribute="bottom" constant="25" id="yVH-Pi-P5u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qjl-DA-B8s"/>
                     <connections>
                         <outlet property="emailTextfield" destination="Lzb-1b-TBQ" id="hwL-B4-xMn"/>
+                        <outlet property="errorLabel" destination="0pp-xM-9U6" id="420-j0-ZLV"/>
                         <outlet property="passwordTextfield" destination="xid-rD-udy" id="oNI-aA-uua"/>
                         <segue destination="X2e-4F-b76" kind="show" identifier="LoginToChat" id="lfU-DD-IqC"/>
                     </connections>
