@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet var titlelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titleText = "Chat🍆You"
+        let titleText = K.appName
         var charIndex = 0.0
         titlelabel.text = ""
         for letter in titleText{
